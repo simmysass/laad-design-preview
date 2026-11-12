@@ -53,7 +53,7 @@
   background: var(--paper);
 }
 
-:is(.product, .product-section) .product-shot .screen-window img {
+:is(.product, .product-section) .product-shot .screen-window :is(img, video) {
   display: block;
   width: 100%;
   max-width: 100%;
@@ -62,6 +62,46 @@
   box-shadow: none;
   object-fit: contain;
   object-position: center;
+}
+
+:is(.product, .product-section) .product-shot {
+  position: relative;
+}
+
+.product-toggle {
+  position: absolute;
+  inset-inline-end: 0;
+  bottom: -11px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid #f4f1ec66;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--paper);
+  cursor: pointer;
+}
+
+.product-toggle:hover {
+  border-color: var(--paper);
+}
+
+.product-toggle:focus-visible {
+  outline: 2px solid var(--paper);
+  outline-offset: 4px;
+}
+
+.product-toggle svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.product-toggle[data-state="playing"] .icon-play,
+.product-toggle[data-state="paused"] .icon-pause {
+  display: none;
 }
 
 :is(.product, .product-section) .product-shot figcaption {
