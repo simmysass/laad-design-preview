@@ -13,7 +13,7 @@
       webm: 'assets/product-demo/04-question-reveals-person-he.webm',
       mp4: 'assets/product-demo/04-question-reveals-person-he.mp4',
       poster: 'assets/product-demo/04-question-reveals-person-he.webp',
-      alt: 'צילום מממשק הדמו של לעד: ההיכרות עם נועה, בת 29, לאחר חשיפת התמונה הראשונה',
+      alt: 'צילום מממשק הדמו של לעד: ההיכרות עם נועה, בת 25, לאחר חשיפת התמונה הראשונה',
       caption: 'ההיכרות שלך'
     },
     match: {
