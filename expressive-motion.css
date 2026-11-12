@@ -1,0 +1,7 @@
+.preview-mode { display: flex; gap: 5px; align-items: center; }
+.preview-mode button { border: 0; border-radius: 3px; background: transparent; color: var(--ink); padding: 7px 10px; font: inherit; cursor: pointer; }
+.preview-mode button[aria-pressed="true"] { background: var(--wine); color: var(--paper); }
+.preview-mode button:focus-visible { outline: 2px solid var(--wine); outline-offset: 3px; }
+.photo-band { position: relative; }
+.photo-band .hero-film { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 10%; opacity: 0; visibility: hidden; }
+.hero.is-motion .photo-band .hero-film { opacity: 1; visibility: visible; }

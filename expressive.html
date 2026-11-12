@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>לעד — חלופת עיצוב</title>
+  
+  
+  
+  <style>
+    :root {
+      --paper: #f4f1ec;
+      --ink: #1c1a17;
+      --wine: #6e1d33;
+      --rule: #1c1a1733;
+      --font: "Heebo", Arial, sans-serif;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    a:focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+    ::selection { background: var(--wine); color: var(--paper); }
+    .exploration-toolbar {
+      direction: ltr;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px 20px;
+      min-height: 46px;
+      padding: 8px 4%;
+      border-bottom: 1px solid var(--rule);
+      font: 11px/1.5 Arial, sans-serif;
+    }
+    .exploration-name { letter-spacing: 1.2px; }
+    .exploration-links { display: flex; gap: 6px; align-items: center; }
+    .exploration-links a { padding: 7px 11px; }
+    .exploration-links a[aria-current="page"] { color: var(--paper); background: var(--ink); border-radius: 3px; }
+    .provenance { color: #6d6861; font-size: 10px; }
+    .masthead {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+      padding: 26px 4% 21px;
+    }
+    .brand { display: flex; gap: 9px; align-items: center; color: var(--wine); font-size: 36px; font-weight: 800; line-height: 1; letter-spacing: -2px; }
+    .brand img { width: 35px; height: 35px; }
+    .site-nav { display: flex; gap: 34px; font-size: 13px; font-weight: 500; }
+    .site-nav a { padding: 8px 0; border-bottom: 1px solid transparent; }
+    .site-nav a:hover { border-color: currentColor; }
+    .hero-intro { padding: 29px 4% 17px; }
+    .hero-intro p { font-size: 13px; line-height: 1.7; margin: 0; }
+    .hero-composition { display: grid; grid-template-columns: minmax(0, 1fr); }
+    .hero-headline { display: contents; }
+    .title-line {
+      display: block;
+      padding-inline: 3.5%;
+      font-size: clamp(92px, 12.4vw, 194px);
+      font-weight: 800;
+      line-height: 1.13;
+      letter-spacing: -.07em;
+    }
+    .title-line.first { grid-row: 1; padding-bottom: 16px; }
+    .title-line.second { grid-row: 3; color: var(--wine); text-align: left; padding-top: 12px; }
+    .photo-band { grid-row: 2; margin: 0; height: clamp(280px, 31vw, 440px); overflow: hidden; background: #ddd8cf; }
+    .photo-band img { width: 100%; height: 100%; object-fit: cover; object-position: center 10%; }
+    .hero-bottom {
+      display: grid;
+      grid-template-columns: .95fr 1fr auto;
+      gap: 45px;
+      align-items: center;
+      padding: 30px 4% 39px;
+    }
+    .hero-lead { font-size: clamp(24px, 2.4vw, 36px); font-weight: 500; line-height: 1.3; letter-spacing: -.035em; margin: 0; max-width: 350px; }
+    .hero-body { font-size: 14px; line-height: 1.85; margin: 0; max-width: 465px; }
+    .join {
+      background: var(--wine);
+      color: var(--paper);
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 18px 24px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background .2s ease, transform .2s ease;
+    }
+    .join:hover { background: var(--ink); transform: translateY(-2px); }
+    .join .arrow { font-family: Arial, sans-serif; font-size: 22px; line-height: 1; }
+    .benefits { margin: 0 4%; padding: 20px 0 23px; border-top: 1px solid var(--rule); list-style: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 14px 25px; font-size: 12px; line-height: 1.6; }
+    .benefits li { display: flex; align-items: center; gap: 10px; }
+    .benefits li::before { content: ""; display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: var(--wine); }
+    .product-section { background: var(--wine); color: var(--paper); margin-top: 44px; padding: 65px 7% 75px; overflow: hidden; }
+    .product-topline { border-top: 1px solid #f4f1ec66; padding-top: 14px; font-size: 12px; line-height: 1.6; }
+    .product-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 9%; align-items: center; margin-top: 50px; }
+    .product-copy h2 { font-size: clamp(48px, 6.7vw, 103px); font-weight: 700; line-height: 1.08; letter-spacing: -.055em; max-width: 660px; margin: 0 0 30px; }
+    .product-copy p { font-size: 17px; line-height: 1.8; margin: 0; max-width: 530px; }
+    .product-copy .why { font-size: 14px; font-weight: 600; display: inline-block; border-bottom: 1px solid #f4f1ec99; padding-bottom: 6px; margin-top: 35px; }
+    .product-shot { margin: 0; width: min(100%, 300px); justify-self: center; }
+    .product-shot img { width: 100%; height: auto; border-radius: 22px; box-shadow: 0 20px 40px #1c1a1730; }
+    .closing { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 34px 4%; }
+    .closing p { margin: 0; color: var(--wine); font-size: 15px; font-weight: 500; }
+    .closing a { font-size: 12px; border-bottom: 1px solid var(--ink); padding-bottom: 4px; }
+    @media (min-width: 1700px) {
+      .hero-bottom { gap: 6%; }
+      .hero-body { font-size: 16px; max-width: 600px; }
+      .hero-lead { max-width: 450px; }
+    }
+    @media (max-width: 1000px) {
+      .hero-bottom { grid-template-columns: 1fr 1fr; gap: 24px 40px; }
+      .hero-bottom .join { justify-self: start; }
+      .hero-body { grid-column: 2; grid-row: 1 / 3; align-self: start; }
+      .product-layout { gap: 7%; grid-template-columns: 1fr .65fr; }
+      .product-copy p { font-size: 15px; }
+    }
+    @media (max-width: 640px) {
+      .exploration-toolbar { padding: 8px 18px; gap: 5px 12px; }
+      .exploration-name { font-size: 9px; letter-spacing: .7px; }
+      .provenance { flex-basis: 100%; font-size: 9px; }
+      .exploration-links a { padding: 7px 9px; }
+      .masthead { padding: 24px 20px 17px; gap: 20px; }
+      .brand { font-size: 32px; }
+      .brand img { width: 29px; height: 29px; }
+      .site-nav { font-size: 11px; gap: 20px; }
+      .hero-intro { padding: 25px 20px 14px; }
+      .hero-intro p { font-size: 11px; max-width: 245px; }
+      .title-line { padding-inline: 18px; font-size: 14.2vw; line-height: 1.2; letter-spacing: -.06em; }
+      .title-line.first { padding-bottom: 15px; }
+      .title-line.second { padding-top: 13px; }
+      .photo-band { height: auto; overflow: visible; }
+      .photo-band img { height: auto; object-fit: initial; }
+      .hero-bottom { display: flex; flex-direction: column; align-items: stretch; gap: 20px; padding: 23px 20px 28px; }
+      .hero-lead { font-size: 27px; max-width: 310px; }
+      .hero-body { font-size: 13px; line-height: 1.8; max-width: none; }
+      .join { align-self: start; font-size: 13px; padding: 16px 21px; gap: 27px; }
+      .benefits { margin: 0 20px; padding: 17px 0; gap: 11px 20px; justify-content: start; font-size: 10px; }
+      .benefits li { gap: 6px; }
+      .benefits li::before { width: 4px; height: 4px; }
+      .product-section { margin-top: 25px; padding: 38px 20px 45px; }
+      .product-topline { font-size: 11px; padding-top: 12px; }
+      .product-layout { display: flex; flex-direction: column; align-items: stretch; gap: 35px; margin-top: 28px; }
+      .product-copy h2 { font-size: 16vw; line-height: 1.1; margin-bottom: 22px; }
+      .product-copy p { font-size: 14px; line-height: 1.85; }
+      .product-copy .why { margin-top: 24px; font-size: 12px; }
+      .product-shot { width: min(76%, 290px); align-self: center; }
+      .product-shot img { border-radius: 19px; }
+      .closing { padding: 27px 20px; }
+      .closing p { font-size: 13px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .join { transition: none; }
+    }
+  </style>
+<link rel="stylesheet" href="product-story.css?v=demo-v5">
+<link rel="stylesheet" href="expressive-motion.css">
+<style>@font-face{font-family:Heebo;src:url("assets/heebo.ttf") format("truetype");font-style:normal;font-weight:100 900;font-display:swap}</style>
+<meta name="description" content="התאמה אחת. בית אחד. — הצעת העיצוב של לעד">
+<meta property="og:title" content="לעד — הצעת עיצוב">
+<meta property="og:description" content="התאמה אחת. בית אחד.">
+<meta property="og:type" content="website">
+</head>
+<body>
+  <aside class="exploration-toolbar" aria-label="Design explorations">
+    <span class="exploration-name">LAAD / DESIGN PREVIEW</span>
+    <nav class="exploration-links" aria-label="Choose a direction">
+      <a href="index.html">Cinematic</a>
+      <a href="expressive.html" aria-current="page">Expressive</a>
+    </nav>
+    <div class="preview-mode" role="group" aria-label="Original photo or animation"><button id="mode-photo" type="button" aria-pressed="true">Photo</button><button id="mode-motion" type="button" aria-pressed="false">Motion</button></div>
+    <span class="provenance">Generated concept imagery</span>
+  </aside>
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="לעד — דף הבית"><img src="assets/laad-seal.svg" alt="">לעד</a>
+    <nav class="site-nav" aria-label="ניווט ראשי">
+      <a href="#experience">החוויה</a>
+      <a href="#how-it-works">איך זה עובד</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-intro"><p>לעד נבנית לאנשים שמחפשים פרטנר לחיים.</p></div>
+      <div class="hero-composition">
+        <h1 class="hero-headline" id="hero-title"><span class="title-line first">התאמה אחת.</span><span class="title-line second">בית אחד.</span></h1>
+        <figure class="photo-band"><img src="assets/laad-courtyard-v1.png" alt="תמונת הקונספט המקורית: שיחה נעימה בחצר בית ישראלי, עם שולחן ומרחק פיזי בין שני האנשים" fetchpriority="high"><video class="hero-film" id="courtyard-film" autoplay loop muted playsinline preload="auto" poster="assets/laad-courtyard-v1.png" aria-hidden="true"><source src="assets/laad-courtyard-talk-web-v3.mp4" type="video/mp4"></video></figure>
+      </div>
+      <div class="hero-bottom" id="experience">
+        <p class="hero-lead">המקום שבו קשר אמיתי מוצא בית.</p>
+        <p class="hero-body">לעד נבנית לאנשים שרוצים להכיר את האדם שאיתו אפשר לבנות בית, בדרך שמכבדת את האדם, את הקשר, ואת החיים שהם רוצים להקים.</p>
+        <a class="join" href="https://laad.bobmetzia.com/"><span>אני רוצה להצטרף</span><span class="arrow" aria-hidden="true">←</span></a>
+      </div>
+      <ul class="benefits"><li>התאמה אחת בכל פעם</li><li>התאמות עם סיבה</li><li>קצב רגוע</li></ul>
+    </section>
+    <section class="product-section" id="how-it-works" aria-labelledby="product-title">
+      <div class="product-topline">איך זה עובד</div>
+      <div class="product-layout">
+        <div class="product-copy">
+          <div class="product-tabs" role="group" aria-label="תצוגות המוצר">
+            <button type="button" data-product-view="introduction" aria-pressed="true" aria-controls="product-capture product-caption">ההיכרות שלך</button>
+            <button type="button" data-product-view="match" aria-pressed="false" aria-controls="product-capture product-caption">יש התאמה!</button>
+            <button type="button" data-product-view="chat" aria-pressed="false" aria-controls="product-capture product-caption">לפתוח את השיחה</button>
+          </div>
+          <h2 id="product-title">הצעה אחת<br>בכל פעם</h2>
+          <p>אחרי שלעד מכירה אותך, היא מביאה הצעה אחת מחושבת בכל פעם. כשמחפשים פרטנר לחיים, הריכוז הזה מאפשר לעצור מול אדם אחד ולראות באמת אם יש כאן משהו אמיתי.</p>
+          <a class="why" href="#experience">למה לעד? ↑</a>
+        </div>
+        <figure class="product-shot"><div class="screen-window"><img id="product-capture" src="assets/product-demo/noa-introduction-he.png" data-view="introduction" alt="צילום מממשק ההדגמה של לעד: ההיכרות עם נועה, בת 29, לאחר חשיפת התמונה הראשונה" loading="lazy"></div><figcaption id="product-caption" aria-live="polite">ההיכרות שלך</figcaption></figure>
+      </div>
+    </section>
+    <footer class="closing"><p>התאמה אחת. בית אחד.</p><a href="#top">לעד ↑</a></footer>
+  </main>
+<script src="hero-motion.js?v=loop-v4"></script>
+<script src="product-story.js?v=demo-v5"></script>
+</body>
+</html>
